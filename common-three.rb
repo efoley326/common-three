@@ -24,12 +24,20 @@ class PhraseFinder
   end
   
   def find_matches(phrases)
-  # store matchdata as variable
-  all_matches = (
-    phrases.each { |phrase| @text.match(phrase) }
-  )
-  all_matches
+    # store matchdata as variable
+    all_matches = (
+      phrases.each { |phrase| @text.match(/"#{phrase}"/i) }
+    )
+    all_matches
   end
   
+  def format_matchdata(all_matches)
+    # return formatted as "match value - count"
+    formatted_matches = (
+    all_matches.each.map { |m|  print "#{m} - #{m.count}"}
+    )
+    formatted_matches
+  end
   
+  def sort_by_count(formatted_matches)
 end
