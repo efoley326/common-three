@@ -40,4 +40,13 @@ class PhraseFinder
   end
   
   def sort_by_count(formatted_matches)
+    matches_high_to_low = (
+      formatted_matches.group_by{|m| m}.sort_by{|k, v| -v.count}.map(&:first)
+    )
+    matches_high_to_low
+  end
+  
+  def render_list(matches_high_to_low)
+    puts matches_high_to_low(1..100)
+  end
 end
