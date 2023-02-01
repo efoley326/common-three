@@ -9,8 +9,9 @@ class PhraseFinder
   end
   
   def create_word_groupings
+    # convert text to array 
     words = @text.split(" ")
-    # words = @text.scan(/\w+ \w+ \w+/i)
+    # construct phrase with each index as starting point
     phrases = (
     words.each_with_index.map { |word, index|
       unless "#{words[index+2]}" == nil
@@ -18,7 +19,17 @@ class PhraseFinder
       end
       }
     )
+    # return phrases as new array
     phrases      
   end
+  
+  def find_matches(phrases)
+  # store matchdata as variable
+  all_matches = (
+    phrases.each { |phrase| @text.match(phrase) }
+  )
+  all_matches
+  end
+  
   
 end
