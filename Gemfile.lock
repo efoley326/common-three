@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     minitest (5.17.0)
+    rack (3.0.4.1)
     rake (13.0.6)
 
 PLATFORMS
@@ -9,7 +10,11 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
+  rack
   rake
+
+RUBY VERSION
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.22
