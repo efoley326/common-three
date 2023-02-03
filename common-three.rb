@@ -1,21 +1,43 @@
+# !usr/bin/env ruby
+require "strscan"
+
 file = ARGF.read
-# convert text to array 
-phrases = file.split(" ").map { |word, index|
-  unless "#{words[index+2]}" == nil
+# remove special characters and convert text to array 
+file_content = file.gsub(/[^A-Za-z0-9\s]/i, "")
+words = file_content.split(" ")
+# construct phrases from each word
+phrases = (
+  words.each_with_index.map { |word, index|
     "#{word} #{words[index+1]} #{words[index+2]}"
-  end
-  } 
-# store matchdata as variable
-all_matches = (
-  phrases.each { |phrase| @text.match(/"#{phrase}"/i) }
+}
 )
-# return formatted as "match value - count"
-formatted_matches = (
-all_matches.each.map { |m|  print "#{m} - #{m.count}"}
+# find all matches
+file_content_to_scan = StringScanner.new(file_content) 
+all_matches = (
+  phrases.each { |phrase|
+    file_content_to_scan.scan(/[^|\s]"#{phrase}[\s|$]"/i).to_enum
+}
 )
 # sort matches by count
 matches_high_to_low = (
-  formatted_matches.group_by{|m| m}.sort_by{|k, v| -v.count}.map(&:first)
+match_count = Hash.new(0)
+all_matches.each{ |m| match_count[m] += 1 }
+match_count.sort_by{ |m, number| number }
 )
+
+# return formatted as "match value - count"
+formatted_matches = (
+  matches_high_to_low.map { |m| puts "#{m.first} - #{m.last}" }
+)
+puts formatted_matches[3]
+
+# matches_high_to_low = (
+#   flattened_matches = formatted_matches.flattened_matches
+#   sorted_ids = flattened_matches.sort_by { |e| -flattened_matches.count(e)}
+# )
+# puts matches_high_to_low
+# puts matches_high_to_low[0]
+
+
 # render list of 100 phrases
-puts matches_high_to_low[1..100]
+# puts matches_high_to_low[1..100] 
