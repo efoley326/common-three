@@ -30,10 +30,8 @@ match_count.sort_by{ |m, number| number }
 
 # return formatted as "match value - count"
 formatted_matches = (
-  matches_high_to_low.each.map { |m| puts "#{m.first} - #{m.last}" }
+  matches_high_to_low.each.map { |m| "#{m.first} - #{m.last}" }
 )
-puts formatted_matches[1]
+
 # sort high to low, return top 100
-# top_100_phrases = (
-  
-# )
+puts formatted_matches.reverse[0..100]
