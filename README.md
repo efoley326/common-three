@@ -1,7 +1,7 @@
 # common-three
 written in Ruby, this CLI tool searches given .txt file contents, locating the most-commonly used three-word phrases throughout. It returns a list of 100, from most to least common.
 
-**please note: tests and subsequent gems were added after initial submission was made.**
+**please note: tests and gems were added after initial submission was made.**
 
 if you prefer to see *__only__* the code as it was submitted at the time of deadline, following your initial repo clone, please run:
 ```
