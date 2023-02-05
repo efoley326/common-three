@@ -1,1 +1,2 @@
-require_relative "./spec/spec_helper.rb"
+require_relative "../spec/spec_helper.rb"
+require_relative "../spec/common-three_spec.rb"

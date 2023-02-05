@@ -1,12 +1,9 @@
-# !usr/bin/env ruby
 require_relative "./spec_helper.rb"
-require_relative "../lib/common-three.rb"
-
 
 RSpec.describe "Cli" do
+let(:ARGF) { "./texts/test_text.txt" }
 
   it "can ignore casing" do
-    Cli.run("./texts/test_text.txt")
-    expect(Cli[:all_matches].size).to eq(2)
+    expect(Cli(:all_matches).size).to eq(2)
   end
 end
