@@ -6,13 +6,13 @@ if you prefer to see __only__ the code as it was submitted at the time of deadli
 git reset --hard c5237939126d24356967908ac764fac6c4df9d00
 ```
 ### Project Status
-At this time, the project is __*testing*__.
+At this time, the project is __*under testing*__.
 ### Instructions
 To use this tool, Ruby will need to be installed to your environment.
 Clone this repo and CD into the project directory.
 You may select your txt file and run the program by entering:
 ```
-ruby common-three.rb texts/<filename>
+ruby app.rb texts/<filename>
 ```
 Rspec testing can be run, and testing coverage percentage can be seen by running:
 ```
