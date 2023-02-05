@@ -1,9 +1,11 @@
 require_relative "./spec_helper.rb"
 
 RSpec.describe "Cli" do
-let(:ARGF) { "./texts/test_text.txt" }
 
   it "can ignore casing" do
-    expect(Cli(:all_matches).size).to eq(2)
+    fake_argf = ARGF.file(file:"./texts/test_text.txt")
+    Cli.run(fake_argf)
+    expect((:matches_high_to_low).size).to eq(2)
   end
+
 end
