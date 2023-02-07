@@ -14,7 +14,7 @@ class Cli
     file = ARGF.read
     # remove special characters and convert text to array 
     file_content = file.gsub(/[^A-Za-z0-9\s]/i, "")
-    words = file_content.split(" ")
+    words = file_content.downcase.split(" ")
     
     # construct phrases from each word
     phrases = (
