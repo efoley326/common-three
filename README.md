@@ -13,4 +13,4 @@ Rspec testing can be run, and testing coverage percentage can be seen by running
 rspec ./spec/common-three_spec.rb
 ```
 ### Project Status
-At this time, the project is __under testing__.
+At this time, the project is __in progress__.
